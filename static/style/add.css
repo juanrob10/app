@@ -1,0 +1,57 @@
+p {
+    text-align: justify;
+}
+
+#message {
+  position: absolute;
+  z-index: 1000;
+  top:5% ;
+  left:5%
+}
+
+@media only screen and (max-width: 640px) {
+    .footer_service li ,.footer_service p   {
+
+        text-align: center;
+  
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+
+
+  .navigation {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+}
+
+#message {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+  }
+
+ 
+
+  .scroll-header {
+    -webkit-box-shadow: -1px 2px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 3px 0px rgba(0,0,0,0.75);
+
+  }
+
+
+
+
+
+  
+  
+  
+  
