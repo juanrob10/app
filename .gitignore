@@ -19,6 +19,7 @@
  
 # Private Node Modules
 node_modules/
+git_notas/
 creds.js
  
 # Private Files
@@ -32,7 +33,7 @@ creds.js
  
 # Mac/OSX
 .DS_Store
- 
+
  
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -172,3 +173,4 @@ dmypy.json
  
 # Cython debug symbols
 cython_debug/
+
