@@ -4,9 +4,9 @@ p {
 }
 
 #message {
-  position: absolute;
+  position:absolute;
   z-index: 1000;
-  top:5% ;
+  top:7% ;
   left:5%
 }
 
