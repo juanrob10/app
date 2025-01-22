@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="{% static  'style/output.css' %}">
 
     <link rel="stylesheet" href="{% static  'style/add.css' %}">
+    <style>
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+          animation: fadeIn 0.5s ease-out forwards;
+      }
+  </style>
     
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
@@ -16,6 +25,27 @@
     <script type="module" src="{%  static 'js/carrusel.js'%}"></script>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <script>
+      // Toggle dark mode based on system preference
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+      }
+
+      // Add hover effect to skill tags
+      const skillTags = document.querySelectorAll('.bg-indigo-100');
+      skillTags.forEach(tag => {
+          tag.addEventListener('mouseover', () => {
+              tag.classList.remove('bg-indigo-100', 'text-indigo-800');
+              tag.classList.add('bg-blue-900', 'text-white');
+          });
+          tag.addEventListener('mouseout', () => {
+              tag.classList.remove('bg-blue-900', 'text-white');
+              tag.classList.add('bg-indigo-100', 'text-indigo-800');
+          });
+      });
+  </script>
 
 
     {% block carrussel%} 
@@ -198,7 +228,7 @@
     </div>
 </nav>
  
-      <div class="container mx-auto max-w-6xl px-4 mb-4  mt-12  lg:mt-14">
+      <div class="container mx-auto max-w-6xl px-4 mb-4  mt-14 lg:mt-0">
         {% if messages %}
       <div  id="message" class="mb-4">
         {% for message in messages %}
