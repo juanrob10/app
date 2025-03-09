@@ -9,6 +9,13 @@ from django.contrib.auth.decorators import user_passes_test
 def index(request):
     return render(request, 'main/home.html')
 
+def work(request):
+    return render(request, 'main/work.html')
+
+def services(request):
+    return render(request, 'main/services.html')
+
+
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('/profile')  # Si el usuario ya está autenticado, redirigir al perfil

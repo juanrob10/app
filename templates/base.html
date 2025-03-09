@@ -163,8 +163,8 @@
                             </a>
                             
                               {% endif %}
-                              <a
-                              href="{% url 'logout'%}"
+                              <
+                              href="{% url 'main:logout'%}"
                                 class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                 role="menuitem"
                               >
@@ -207,7 +207,7 @@
 
                 {% else %} 
                 
-                <a href="{% url 'login'%}"
+                <a href="{% url 'main:login'%}"
                 class="text-white bg-teal-500   border-teal-500 font-medium rounded-lg text-sm px-4 lg:px-5 py-1.5 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none dark:focus:ring-purple-800">Login</a>
             
                 {%endif%}
@@ -240,12 +240,12 @@
                             aria-current="page">Home</a>
                     </li>
                     <li>
-                      <a href="#"
+                      <a href="{% url 'main:services' %}"
                       class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded  text-center"
-                      aria-current="page">About</a>
+                      aria-current="page">Services</a>
                     </li>
                     <li>
-                      <a href="#"
+                      <a href="{% url 'main:work' %}"
                       class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded  text-center"
                       aria-current="page">Work</a>
                     </li>
