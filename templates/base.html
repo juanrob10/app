@@ -146,7 +146,7 @@
                               <strong class="block p-2 text-xs font-medium uppercase text-gray-400"> General </strong>
                         
                               <a
-                              href="{% url 'profile'%}"
+                              href="{% url 'main:profile'%}"
                               class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                               role="menuitem"
                             >
@@ -154,16 +154,17 @@
                             </a>
 
                               {%if user.is_superuser %}
-                              <a
-                              href="/admin"
-                              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                              role="menuitem"
-                            >
-                              Admin
-                            </a>
+                                  <a
+                                  href="/admin"
+                                  class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                                  role="menuitem"
+                                >
+                                  Admin
+                                </a>
                             
-                              {% endif %}
-                              <
+                              {% endif%}
+                              
+                              <a 
                               href="{% url 'main:logout'%}"
                                 class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                                 role="menuitem"
@@ -250,13 +251,13 @@
                       aria-current="page">Work</a>
                     </li>
                     <li>
-                      <a href="#"
+                      <a href="{% url 'main:clients'%}"
                       class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded  text-center"
                       aria-current="page">Clients</a>   
                     </li>
 
                     <li>
-                      <a href="#"
+                      <a href="{% url 'main:contact'%}"
                       class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded text-center"
                       aria-current="page">Contact</a>   
                       </li>

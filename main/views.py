@@ -12,8 +12,15 @@ def index(request):
 def work(request):
     return render(request, 'main/work.html')
 
+def clients(request):
+    return render(request, 'main/clients.html')
+
 def services(request):
     return render(request, 'main/services.html')
+
+def contact(request):
+    return render(request, 'main/contact.html')
+
 
 
 def login_view(request):
