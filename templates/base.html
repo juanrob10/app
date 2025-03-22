@@ -199,28 +199,58 @@
                 <ul class="lista flex flex-col mt-4 font-medium md:flex-row lg:space-x-8 md:mt-0">
                     <li>
                         <a href="/"
-                            class="block py-2 pl-3 pr-4 text-teal-700 border-b md:border-0  lg:p-0  rounded  text-center"
+                            class="
+                             {% if request.path == '/' %}
+                             block py-2 pl-3 pr-4
+                             border-b md:border-0  lg:p-0  rounded  text-center text-teal-800{% else %}
+                             block py-2 pl-3 pr-4
+                             border-b md:border-0  lg:p-0  rounded  text-center
+                             text-teal-500{% endif %}"
                             aria-current="page">Home</a>
                     </li>
                     <li>
                       <a href="{% url 'main:services' %}"
-                      class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded  text-center"
+                      class="
+                      {% if request.path == '/services/' %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center text-teal-800{% else %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center
+                      text-teal-500{% endif %}"
                       aria-current="page">Services</a>
                     </li>
                     <li>
                       <a href="{% url 'main:work' %}"
-                      class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded  text-center"
+                      class="
+                      {% if request.path == '/work/' %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center text-teal-800{% else %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center
+                      text-teal-500{% endif %}"
                       aria-current="page">Work</a>
                     </li>
                     <li>
                       <a href="{% url 'main:clients'%}"
-                      class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded  text-center"
+                      class="
+                      {% if request.path == '/clients/' %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center text-teal-800{% else %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center
+                      text-teal-500{% endif %}"
                       aria-current="page">Clients</a>   
                     </li>
 
                     <li>
                       <a href="{% url 'main:contact'%}"
-                      class="block py-2 pl-3 pr-4 text-teal-500 border-b md:border-0  lg:p-0  rounded text-center"
+                      class="
+                      {% if request.path == '/contact/' %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center text-teal-800{% else %}
+                      block py-2 pl-3 pr-4
+                      border-b md:border-0  lg:p-0  rounded  text-center
+                      text-teal-500{% endif %}"
                       aria-current="page">Contact</a>   
                       </li>
               

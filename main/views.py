@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .forms import LoginForm
-from django.contrib.auth.decorators import user_passes_test
+
 
 def index(request):
     return render(request, 'main/home.html')
@@ -20,8 +20,6 @@ def services(request):
 
 def contact(request):
     return render(request, 'main/contact.html')
-
-
 
 def login_view(request):
     if request.user.is_authenticated:
@@ -39,7 +37,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, "¡Has iniciado sesión correctamente!")
-                return redirect("/")
+                return redirect("/profile")
             else:
                 form.add_error(None, "Usuario o contraseña incorrectos.")  # Agregar error al formulario
         else:
