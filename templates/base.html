@@ -128,38 +128,53 @@
             
             <div class="flex items-center md:order-2 space-x-4">
                 {% if user.is_authenticated %}
-                <div x-data="{ isActive: false }" class="relative">
-                    <button @click="isActive = !isActive" class="flex items-center space-x-2 focus:outline-none">
+                  <div x-data="{ isActive: false }" class="relative">
+                    <!-- Botón del dropdown -->
+                    <button @click="isActive = !isActive" 
+                            @keydown.escape="isActive = false"
+                            class="flex items-center space-x-2 focus:outline-none"
+                            :aria-expanded="isActive">
                         <span class="font-medium text-gray-700">{{ user.username }}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 transition-transform duration-200" 
-                             :class="{ 'transform rotate-180': isActive }" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="h-5 w-5 text-gray-500 transition-transform duration-200" 
+                            :class="{ 'transform rotate-180': isActive }" 
+                            viewBox="0 0 20 20" 
+                            fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
                     
-                    <div x-cloak x-show="isActive" @click.away="isActive = false" 
-                         x-transition:enter="transition ease-out duration-100"
-                         x-transition:enter-start="transform opacity-0 scale-95"
-                         x-transition:enter-end="transform opacity-100 scale-100"
-                         x-transition:leave="transition ease-in duration-75"
-                         x-transition:leave-start="transform opacity-100 scale-100"
-                         x-transition:leave-end="transform opacity-0 scale-95"
-                         class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                    <!-- Menú dropdown -->
+                    <div x-cloak
+                        x-show="isActive"
+                        x-ref="dropdown"
+                        @click.away="isActive = false"
+                        x-transition:enter="transition ease-out duration-100"
+                        x-transition:enter-start="transform opacity-0 scale-95"
+                        x-transition:enter-end="transform opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-75"
+                        x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95"
+                        class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-visible"
+                        style="min-width: max-content;">
                         <div class="py-1">
-                            <a href="{% url 'main:profile' %}" class="user-dropdown block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="{% url 'main:profile' %}" 
+                              class="user-dropdown block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                                 Perfil
                             </a>
                             {% if user.is_superuser %}
-                            <a href="/admin" class="user-dropdown block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="/admin" 
+                              class="user-dropdown block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                                 Admin
                             </a>
                             {% endif %}
-                            <a href="{% url 'main:logout' %}" class="user-dropdown block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="{% url 'main:logout' %}" 
+                              class="user-dropdown block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                                 Cerrar sesión
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>  
                 {% else %}
                 <a href="{% url 'main:login' %}" 
                    class="px-4 py-2 text-sm font-medium text-white bg-teal-600 rounded-lg hover:bg-teal-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">

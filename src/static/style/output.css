@@ -1126,6 +1126,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -1446,6 +1450,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
